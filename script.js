@@ -1,6 +1,8 @@
 const formElement = document.querySelector(".form");
 const todoListElement = document.querySelector(".todo-list");
 
+let todoList = [];
+
 formElement.addEventListener("submit", (e)=>{
     e.preventDefault();
     // console.log(e.target);
@@ -16,9 +18,24 @@ formElement.addEventListener("submit", (e)=>{
 
     console.log(todo);
     createTodo(todo);
+    formElement.reset();
 });
 
+todoListElement.addEventListener('click', e=>{
+    const deleteBtnElement = e.target.closest(".todo-item-delete-btn");
+
+    if(!deleteBtnElement){
+        return;
+    }
+
+    const currentTodoItemElement = deleteBtnElement.parentElement;
+    currentTodoItemElement.remove();
+    // console.log(currentTodoItemElement);
+})
+
 const createTodo = (todo) =>{
+    todoList.push(todo);
+    localStorage.setItem("todo-list", JSON.stringify(todoList));
     createTodoItem(todo);
 }
 
@@ -31,4 +48,8 @@ const createTodoItem = ({todo, id}) => {
                 </li>`;
 
     todoListElement.insertAdjacentHTML("beforeend",todoItem)
+}
+
+const deleteTodo = todo =>{
+
 }
