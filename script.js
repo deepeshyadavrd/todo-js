@@ -51,5 +51,5 @@ const createTodoItem = ({todo, id}) => {
 }
 
 const deleteTodo = todo =>{
-
+    const updatedTodo = todoList.filter
 }
