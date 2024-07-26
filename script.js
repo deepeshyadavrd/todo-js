@@ -29,6 +29,7 @@ todoListElement.addEventListener('click', e=>{
     }
 
     const currentTodoItemElement = deleteBtnElement.parentElement;
+    deleteTodo(currentTodoItemElement.id);
     currentTodoItemElement.remove();
     // console.log(currentTodoItemElement);
 })
@@ -51,5 +52,7 @@ const createTodoItem = ({todo, id}) => {
 }
 
 const deleteTodo = (id) =>{
-    const updatedTodo = todoList.filter((todo) => todo.id !== id)
+    const updatedTodo = todoList.filter((todo) => todo.id !== id);
+    todoList = updatedTodo;
+    localStorage.setItem("todo-list", JSON.stringify(todoList));
 }
