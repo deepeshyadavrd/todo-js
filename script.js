@@ -37,6 +37,7 @@ todoListElement.addEventListener('click', e=>{
 const createTodo = (todo) =>{
     todoList.push(todo);
     localStorage.setItem("todo-list", JSON.stringify(todoList));
+    
     createTodoItem(todo);
 }
 
