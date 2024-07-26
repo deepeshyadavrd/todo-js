@@ -50,6 +50,6 @@ const createTodoItem = ({todo, id}) => {
     todoListElement.insertAdjacentHTML("beforeend",todoItem)
 }
 
-const deleteTodo = todo =>{
-    const updatedTodo = todoList.filter
+const deleteTodo = (id) =>{
+    const updatedTodo = todoList.filter((todo) => todo.id !== id)
 }
