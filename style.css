@@ -70,6 +70,7 @@ body{
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
+    animation: fade-in 1s;
 }
 
 .todo-item-delete-btn{
@@ -84,4 +85,11 @@ body{
 }
 .todo-item-delete-btn:hover{
     background-color: #eee;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        translate: 0 -1rem;
+    }
 }
