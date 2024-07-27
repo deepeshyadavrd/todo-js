@@ -57,3 +57,11 @@ const deleteTodo = (id) =>{
     todoList = updatedTodo;
     localStorage.setItem("todo-list", JSON.stringify(todoList));
 }
+
+const init = () => {
+    const allTodo = JSON.parse(localStorage.getItem("todo-list") || []);
+    todoList = allTodo;
+    todoList.forEach((todo) => createTodoItem(todo));
+}
+
+window.addEventListener("DOMContentLoaded", init);
